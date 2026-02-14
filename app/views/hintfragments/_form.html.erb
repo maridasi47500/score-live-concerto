@@ -1,0 +1,53 @@
+<%= form_with(model: hintfragment) do |form| %>
+  <% if hintfragment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(hintfragment.errors.count, "error") %> prohibited this hintfragment from being saved:</h2>
+
+      <ul>
+        <% hintfragment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :time, style: "display: block" %>
+    <%= form.text_field :time %>
+  </div>
+<%if (hintfragment.clip.fragment rescue nil)%>
+<p>voici le fragment de la partition, peut etre vous voulez ajouter des trucs pour le jouer ? <code>\lyrics { \markup { ... } }</code> sert à ajouter des trucs.</p>
+<img src="<%=hintfragment.clip.fragment.getpic%>"/>
+<%end%>
+
+
+  <div>
+    <%= form.label :key, style: "display: block" %>
+    <%= form.text_field :key %>
+  </div>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_area :content, style:"height:300px;width:100%;" %>
+  </div>
+
+  <div>
+    <%#= form.label :clip_id, style: "display: block" %>
+    <%= form.hidden_field :clip_id %>
+  </div>
+
+  <div>
+    <%= form.label :comment, style: "display: block" %>
+ajouter plus de details pour le jouer, ici entrez du texte et je l'ajouterai avec un  <code>\lyrics { \markup { ... } }</code> .
+    <%= form.text_area :comment, style:"height:300px;width:100%;" %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

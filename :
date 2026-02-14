@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @fragment %>
+<%= render @fragment.clips %>
+
+<div>
+  <%= link_to "add clip to this fragment", addclip_fragment_path(@fragment) %> |
+  <%= link_to "Edit this fragment", edit_fragment_path(@fragment) %> |
+  <%= link_to "Back to fragments", fragments_path %>
+
+  <%= button_to "Destroy this fragment", @fragment, method: :delete %>
+</div>

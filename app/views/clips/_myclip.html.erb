@@ -1,0 +1,19 @@
+<div id="<%= dom_id clip %>">
+
+  <p>
+    <strong>Title:</strong>
+    <%= clip.title %>
+  </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<%=clip.link%>?start=<%=clip.mytime%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<%=link_to "voir la description de ce clip", clip%>
+<%if clip.hintfragments.length > 0%>
+<h2>détails à propos de cette video</h2>
+<%clip.hintfragments.each do |g|%>
+<li><img src="<%=g.getpic%>" /><%=link_to "editer ce fragment edité", edit_hintfragment_path(g)%></li>
+<%end%>
+<%end%>
+
+
+
+
+</div>

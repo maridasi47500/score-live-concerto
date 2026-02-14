@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: MyString
+  key: MyString
+  title: MyString
+  content: MyText
+  composer_id: 1
+
+two:
+  time: MyString
+  key: MyString
+  title: MyString
+  content: MyText
+  composer_id: 1

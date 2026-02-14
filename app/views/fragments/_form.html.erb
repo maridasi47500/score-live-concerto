@@ -1,0 +1,42 @@
+<%= form_with(model: fragment) do |form| %>
+  <% if fragment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(fragment.errors.count, "error") %> prohibited this fragment from being saved:</h2>
+
+      <ul>
+        <% fragment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :time, style: "display: block" %>
+    <%= form.text_field :time %>
+  </div>
+
+  <div>
+    <%= form.label :key, style: "display: block" %>
+    <%= form.text_field :key %>
+  </div>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.label :composer_id, style: "display: block" %>
+    <%= form.select :composer_id, Composer.all.collect{|g|[g.name, g.id]} %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

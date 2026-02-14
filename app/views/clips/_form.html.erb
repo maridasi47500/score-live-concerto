@@ -1,0 +1,40 @@
+<%= form_with(model: clip) do |form| %>
+  <% if clip.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(clip.errors.count, "error") %> prohibited this clip from being saved:</h2>
+
+      <ul>
+        <% clip.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%#= form.label :fragment_id, style: "display: block" %>
+    <%= form.hidden_field :fragment_id %>
+  </div>
+<%if clip.fragment%>
+<img src="<%=clip.fragment.getpic%>"/>
+<%end%>
+
+
+  <div>
+    <%= form.label :link, style: "display: block" %>
+<span>https://youtube?v=</span>
+    <%= form.text_field :link %>
+  </div>
+
+
+
+  <div>
+    <%= form.label :mytime, style: "display: block" %>
+     à combien de secondes est ce passage?
+    <%= form.text_field :mytime %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

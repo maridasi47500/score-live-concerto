@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @hintfragment %>
+
+<div>
+  <%= link_to "Edit this hintfragment", edit_hintfragment_path(@hintfragment) %> |
+  <%= link_to "Back to hintfragments", hintfragments_path %>
+
+  <%= button_to "Destroy this hintfragment", @hintfragment, method: :delete %>
+</div>

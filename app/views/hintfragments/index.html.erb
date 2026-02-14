@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Hintfragments</h1>
+
+<div id="hintfragments">
+  <% @hintfragments.each do |hintfragment| %>
+    <%= render hintfragment %>
+    <p>
+      <%= link_to "Show this hintfragment", hintfragment %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New hintfragment", new_hintfragment_path %>
